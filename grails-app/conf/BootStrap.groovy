@@ -18,7 +18,7 @@ class BootStrap {
         (1..10).each{ i ->
             Pjugger pjugger = new Pjugger(name: "Recruiter "+i, email: "java_job@finder"+i+".com", about: "Employing US",
                             recruiter: true).save(failOnError: true)
-            grails2.attendees.add(pjugger)
+            grails2.addToAttendees(pjugger)
             grails2.save(failOnError: true)
         }
 
@@ -26,12 +26,12 @@ class BootStrap {
             //you can define it as def but, I prefer the example above especially when we're dealing with multiple models
             def developer = new Pjugger(name: "Developer "+i, email: "java_job@needer"+i+".com", about: "Rock star Developer",
                             recruiter: false).save(failOnError: false)
-            grails2.attendees.add(developer)
+            grails2.addToAttendees(developer)
             grails2.save(failOnError: true)
         }
 
         //we have an implied logger always, thanks Grails
-        log.info("Bootstrapped with "+grails2.attendees.size+" attendees for the "+grails2.topic+" meetup")
+        log.info("Bootstrapped with "+grails2.attendees.size()+" attendees for the "+grails2.topic+" meetup")
     }
     def destroy = {
     }
