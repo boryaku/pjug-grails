@@ -110,7 +110,7 @@ class PjuggerController {
     }
 
     /**
-     * There's really no reason you wouldn't put this right in list but... maybe you want separate them ?!?
+     * There's really no reason you wouldn't put this right in list but... maybe you want to separate them ?!?
      */
     def users(){
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
